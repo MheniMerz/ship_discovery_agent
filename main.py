@@ -14,9 +14,11 @@ client.set_missing_host_key_policy(AutoAddPolicy())
 client.connect('border01', username='admin', password='YourPaSsWoRd')
 stdin, stdout, stderr = client.exec_command('show arp')
 if stdout.channel.recv_exit_status() == 0:
-    print(f'STDOUT: {stdout.read().decode("utf8")}')
+    print(f'{stdout.read().decode("utf8")}')
 else:
-    print(f'STDERR: {stderr.read().decode("utf8")}')
+    print('===================================')
+    print(f'{stderr.read().decode("utf8")}')
+    print('===================================')
 
 stdin.close()
 stdout.close()
