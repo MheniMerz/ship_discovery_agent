@@ -5,7 +5,6 @@ client = SSHClient()
 
 #load host ssh keys
 client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
-client.load_system_host_keys()
 
 # known_hosts policy
 client.set_missing_host_key_policy(AutoAddPolicy())
