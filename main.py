@@ -23,6 +23,8 @@ else:
 stdin.close()
 stdout.close()
 stderr.close()
+
+client.close()
 #run commands
 # show arp
 # show ip route
