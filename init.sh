@@ -1,5 +1,5 @@
 #!/bin/bash
 
 #add environment variables to the bashrc
-cat ./config/env_vars.env >> ~/.bashrc
+awk '{print "export "$0}' config/env_vars.env >> ~/.bashrc
 . ~/.bashrc
