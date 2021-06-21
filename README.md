@@ -26,15 +26,19 @@ running the ansible-playbooks takes a while, so be patient.
 
 ### running the agent
 
-1. run the `init.sh` script in the current shell by sourcing it
+1. clone the repo
+```
+	git clone https://github.com/MheniMerz/ship_discovery_agent & cd ship_discovery_agent/
+```
+2. run the `init.sh` script in the current shell by sourcing it
 ```
 	source init.sh
 ```
-2. install the required packages
+3. install the required packages
 ```
 	pip3 install -r requirements.txt
 ```
-3. run `main.py`
+4. run `main.py`
 ```
 	python3 main.py
 ```
