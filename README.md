@@ -34,7 +34,7 @@ running the ansible-playbooks takes a while, so be patient.
 ```
 	pip3 install -r requirements.txt
 ```
-3. run main.py
+3. run `main.py`
 ```
 	python3 main.py
 ```
