@@ -4,6 +4,8 @@ from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
 
 cfg = Config()
+cfg.conf_file_path
+cfg.conf_file_contents
 client = SSHClient()
 
 #load host ssh keys
