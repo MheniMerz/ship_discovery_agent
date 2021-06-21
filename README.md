@@ -19,8 +19,8 @@ However, we want to load our own configuration. To achieve that follow these ste
 ```
 	git clone https://gitlab.com/hani.merzouki/sonic-demo
 	cd sonic-demo/automation
-	ansible-playbook -i -i inventory/pod1/hosts playbooks/restore_sonic.yml
-	ansible-playbook -i -i inventory/pod1/hosts playbooks/restore_files.yml
+	ansible-playbook -i inventory/pod1/hosts playbooks/restore_sonic.yml
+	ansible-playbook -i inventory/pod1/hosts playbooks/restore_files.yml
 ```
 running the ansible-playbooks takes a while, so be patient.
 
