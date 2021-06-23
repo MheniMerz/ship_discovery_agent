@@ -19,7 +19,7 @@ client.set_missing_host_key_policy(AutoAddPolicy())
 # read config file and foreach host create connection
 for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     client.connect(
-        'device',
+        device,
         username='admin',
         password='YourPaSsWoRd')
     for i in commandList:
