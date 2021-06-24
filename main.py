@@ -37,10 +37,9 @@ def show_commands(device):
     stderr.close()
 
 
-#with concurrent.futures.ThreadPoolExecutor() as executor:
-for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
-        #future = executor.submit(show_commands, device)
-    show_commands(device)
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
+        future = executor.submit(show_commands, device=device)
 
 client.close()
 
