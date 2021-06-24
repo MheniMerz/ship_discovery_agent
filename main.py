@@ -20,8 +20,8 @@ client.set_missing_host_key_policy(AutoAddPolicy())
 for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     client.connect(
         device,
-        username='admin',
-        password='YourPaSsWoRd')
+        username=cfg.conf_file_contents['AUTH']['username'],
+        password=cfg.conf_file_contents['AUTH']['password'])
     for i in commandList:
         print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
         stdin, stdout, stderr = client.exec_command(i)
