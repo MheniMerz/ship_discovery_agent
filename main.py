@@ -11,14 +11,13 @@ client = SSHClient()
 # list of commands that will be run for each node on network
 commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule']
 
-# load host ssh keys
-client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
-
-# known_hosts policy
-client.set_missing_host_key_policy(AutoAddPolicy())
-
 
 def show_commands(device):
+    # load host ssh keys
+    client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
+
+    # known_hosts policy
+    client.set_missing_host_key_policy(AutoAddPolicy())
     client.connect(
         device,
         username=cfg.conf_file_contents['AUTH']['username'],
