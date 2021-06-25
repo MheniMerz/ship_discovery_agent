@@ -7,17 +7,12 @@ from config.config import Config
 
 cfg = Config()
 client = SSHClient()
-#list of commands that will be run for each node on network
+
+# list of commands that will be run for each node on network
 commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule']
 
-#load host ssh keys
-client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
 
-# known_hosts policy
-client.set_missing_host_key_policy(AutoAddPolicy())
-
-# read config file and foreach host create connection
-for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
+def show_commands(device):
     client.connect(
         device,
         username=cfg.conf_file_contents['AUTH']['username'],
@@ -35,4 +30,20 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     stdout.close()
     stderr.close()
 
-    client.close()
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    # load host ssh keys
+    client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
+
+    # known_hosts policy
+    client.set_missing_host_key_policy(AutoAddPolicy())
+
+    for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
+        future = executor.submit(show_commands, device=device)
+
+client.close()
+
+# run commands
+# show arp
+# show ip route
+# show acl table, show acl rules
