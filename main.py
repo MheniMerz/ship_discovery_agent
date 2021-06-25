@@ -32,13 +32,12 @@ def show_commands(device):
 
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
-    # load host ssh keys
-    client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
-
-    # known_hosts policy
-    client.set_missing_host_key_policy(AutoAddPolicy())
-
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
+        # load host ssh keys
+        client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
+
+        # known_hosts policy
+        client.set_missing_host_key_policy(AutoAddPolicy())
         future = executor.submit(show_commands, device=device)
 
 client.close()
