@@ -13,11 +13,6 @@ commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule']
 
 
 def show_commands(device):
-    # load host ssh keys
-    client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
-
-    # known_hosts policy
-    client.set_missing_host_key_policy(AutoAddPolicy())
     client.connect(
         device,
         username=cfg.conf_file_contents['AUTH']['username'],
@@ -37,6 +32,12 @@ def show_commands(device):
 
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
+    # load host ssh keys
+    client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
+
+    # known_hosts policy
+    client.set_missing_host_key_policy(AutoAddPolicy())
+
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         future = executor.submit(show_commands, device=device)
 
