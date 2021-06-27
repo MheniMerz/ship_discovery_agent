@@ -3,7 +3,9 @@ import os
 import json
 from concurrent.futures import ThreadPoolExecutor
 from paramiko import SSHClient, AutoAddPolicy
+
 from config.config import Config
+from query.qeury import Query
 
 cfg = Config()
 client = SSHClient()
@@ -18,18 +20,10 @@ def show_commands(device):
         username=cfg.conf_file_contents['AUTH']['username'],
         password=cfg.conf_file_contents['AUTH']['password'])
     for i in commandList:
+        current_query = Query(device, i)
         print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
-        stdin, stdout, stderr = client.exec_command(i)
-        if stdout.channel.recv_exit_status() == 0:
-            print(f'{stdout.read().decode("utf8")}')
-        else:
-            print('===================================')
-            print(f'{stderr.read().decode("utf8")}')
-            print('===================================')
-    stdin.close()
-    stdout.close()
-    stderr.close()
-
+        current_query.send_query(client)
+        print(current_query.result)
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     # load host ssh keys
