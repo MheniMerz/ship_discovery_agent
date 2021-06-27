@@ -21,9 +21,9 @@ def show_commands(device):
         password=cfg.conf_file_contents['AUTH']['password'])
     for i in commandList:
         current_query = Query(device, i)
-        print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
+        #print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
         current_query.send_query(client)
-        print(current_query.result)
+        print(current_query)
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     # load host ssh keys
