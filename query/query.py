@@ -16,4 +16,4 @@ class Query:
         str_value += '\n\t hostname: '+self.device
         str_value += '\n\t command: '+self.cmd
         str_value += '\n\t result: '+self.device
-        str_value += '\n}'n
+        str_value += '\n}'
