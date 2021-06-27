@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from paramiko import SSHClient, AutoAddPolicy
 
 from config.config import Config
-from query.qeury import Query
+from query.query import Query
 
 cfg = Config()
 client = SSHClient()
