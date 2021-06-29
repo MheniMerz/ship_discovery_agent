@@ -23,8 +23,8 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     print("3")
     client.connect(
         device,
-        username=cfg.conf_file_contents['AUTH']['username'],
-        password=cfg.conf_file_contents['AUTH']['password'])
+        username=str(cfg.conf_file_contents['AUTH']['username']),
+        password=str(cfg.conf_file_contents['AUTH']['password']))
     print("4")
     for i in commandList:
         print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
