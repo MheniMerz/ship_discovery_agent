@@ -34,4 +34,4 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     stdin.close()
     stdout.close()
     stderr.close()
-    client.close()
+client.close()
