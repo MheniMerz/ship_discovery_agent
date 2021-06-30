@@ -32,6 +32,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                 print("test")
                 print(arpVar)
                 print(f'{arpVar}')
+                print("test")
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
