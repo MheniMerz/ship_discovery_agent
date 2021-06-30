@@ -27,6 +27,10 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         stdin, stdout, stderr = client.exec_command(i)
         if stdout.channel.recv_exit_status() == 0:
             print(f'{stdout.read().decode("utf8")}')
+            if i == 'show arp' and device == 'border01':
+                arpVar = stdout.read().decode("utf8")
+                print(arpVar)
+                print(f'{arpVar}')
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
