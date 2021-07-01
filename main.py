@@ -4,6 +4,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
+from query.query import Query
 
 cfg = Config()
 client = SSHClient()
@@ -23,19 +24,22 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         username=cfg.conf_file_contents['AUTH']['username'],
         password=cfg.conf_file_contents['AUTH']['password'])
     for i in commandList:
-        print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
-        stdin, stdout, stderr = client.exec_command(i)
-        if stdout.channel.recv_exit_status() == 0:
-            print(f'{stdout.read().decode("utf8")}')
-            if i == 'show arp' and device == 'border01':
-                arpVar = f'{stdout.read().decode("utf8")}'
-                print("test")
-                print(arpVar)
-                print("test")
-        else:
-            print('===================================')
-            print(f'{stderr.read().decode("utf8")}')
-            print('===================================')
+        current_query = Query(device, i)
+        current_query.send_query(client)
+        print(current_query)
+        #print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
+        #stdin, stdout, stderr = client.exec_command(i)
+        #if stdout.channel.recv_exit_status() == 0:
+        #    print(f'{stdout.read().decode("utf8")}')
+        #    if i == 'show arp' and device == 'border01':
+        #        arpVar = f'{stdout.read().decode("utf8")}'
+        #        print("test")
+        #        print(arpVar)
+        #        print("test")
+        #else:
+        #    print('===================================')
+        #    print(f'{stderr.read().decode("utf8")}')
+        #    print('===================================')
     stdin.close()
     stdout.close()
     stderr.close()
