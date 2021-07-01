@@ -6,7 +6,7 @@ class Query:
 
     def send_query(self, ssh_client):
         stdin, stdout, stderr = ssh_client.exec_command(self.cmd)
-        for line in sdtout:
+        for line in stdout:
             self.result += line
         stdin.close()
         stdout.close()
