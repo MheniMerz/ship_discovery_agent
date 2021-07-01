@@ -34,9 +34,8 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                 old_stdout = sys.stdout
                 arpVar = StringIO()
                 sys.stdout = arpVar
-                print(arpVar.getvalue())
+                arpVar.getvalue().write()
                 sys.stdout = old_stdout
-                # regEx = re.findall()
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
