@@ -4,6 +4,9 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
+import re
+from io import StringIO
+import sys
 
 cfg = Config()
 client = SSHClient()
@@ -28,12 +31,10 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         if stdout.channel.recv_exit_status() == 0:
             print(f'{stdout.read().decode("utf8")}')
             if i == 'show arp' and device == 'border01':
-                arpVar = stdout.read()
-                print("test")
-                print(arpVar.decode("utf8"))
-                print("1")
-                print(f'{arpVar.decode("utf8")}')
-                print("test")
+                arpVar = StringIO()
+                sys.stdout = arpVar
+                print(arpVar.getvalue())
+                # regEx = re.findall()
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
