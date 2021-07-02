@@ -29,7 +29,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         print('\n' + device + ': ' + i.split(' ', 1)[1] + '\n')
         stdin, stdout, stderr = client.exec_command(i)
         if stdout.channel.recv_exit_status() == 0:
-            string1 = stdout.readlines()
+            string1 = f'{stdout.read().decode("utf8")}'
             print("1")
             print(f'{stdout.read().decode("utf8")}')
             if i == 'show arp' and device == 'border01':
