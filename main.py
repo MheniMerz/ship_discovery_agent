@@ -32,7 +32,8 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
             print(f'{stdout.read().decode("utf8")}')
             if i == 'show arp' and device == 'border01':
                 num = 0
-                string = stdout.read().decode('ascii').strip("\n")
+                #string = stdout.read().decode('ascii').strip("\n")
+                string = stdout.read()
                 print(string)
                 for line in string.splitlines():
                     num += 1
