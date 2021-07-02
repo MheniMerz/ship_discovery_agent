@@ -20,6 +20,9 @@ client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
 client.set_missing_host_key_policy(AutoAddPolicy())
 
 # read config file and foreach host create connection
+nD = {}
+rows = []
+columns = []
 for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     client.connect(
         device,
@@ -34,9 +37,13 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
             if i == 'show arp' and device == 'border01':
                 n = 0
                 for line in string1.splitlines():
-                    print(n)
-                    print(line)
+                    if n == 0:
+                        columns = line
+                    elif n > 1:
+                        rows.append(list(line.split("")))
                     n += 1
+                nD[device] = {'interface': {'columns': columns, 'rows': rows}}
+                print(nD)
 
         else:
             print('===================================')
