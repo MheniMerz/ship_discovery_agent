@@ -40,7 +40,9 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                     if n == 0:
                         columns = line
                     elif n > 1:
-                        rows.append(list(line))
+                        list1 = []
+                        list1.append(line)
+                        rows.append(list1)
                     n += 1
                 nD[device] = {'interface': {'columns': columns, 'rows': rows}}
                 print(nD)
