@@ -45,7 +45,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                         rows.append(list1)
                     n += 1
                 nD[device] = {'interface': {'columns': columns, 'rows': rows}}
-                json_network = json.dumps(nD, indent=1)
+                json_network = json.dumps(nD, indent=2)
                 print(json_network)
         else:
             print('===================================')
