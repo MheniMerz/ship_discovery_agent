@@ -34,7 +34,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                 old_stdout = sys.stdout
                 arpVar = StringIO()
                 sys.stdout = arpVar
-                arpVar.getvalue().write()
+                print(arpVar.getvalue())
                 sys.stdout = old_stdout
         else:
             print('===================================')
