@@ -5,9 +5,11 @@ from concurrent.futures import ThreadPoolExecutor
 from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
 from query.query import Query
+from parser.parser import Parser
 
 cfg = Config()
 client = SSHClient()
+parser = Parser()
 query_dictionary = {}
 
 # list of commands that will be run for each node on network
@@ -31,5 +33,8 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         query_dictionary[current_query.device+'.'+current_query.cmd] = current_query.result
         #print(current_query)
 client.close()
+
 for i in query_dictionary :
-    print (query_dictionary[i])
+    if 'show arp' in i:
+        result = parser.parse_show_arp(query_dictionary[i])
+        print(result)
