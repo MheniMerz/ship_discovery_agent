@@ -6,4 +6,4 @@ Start
   ^[-+\s+]+ -> Row
 
 Row
-  ^{IP}\s+{MAC}[\s+\S]* -> Record
+  ^${IP}\s+${MAC}[\s+\S]* -> Record
