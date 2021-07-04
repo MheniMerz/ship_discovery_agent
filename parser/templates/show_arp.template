@@ -4,8 +4,6 @@ Value MAC (([0-9A-F]{2}[:-]){5}([0-9A-F]){2})
 Start
   ^Address\s+MacAddress\s+Iface\s+Vlan
   ^[-+\s+]+ -> Row
-  ^. -> Error
 
 Row
   ^{IP}\s+{MAC}[\s+\S]* -> Record
-  ^. -> Error
