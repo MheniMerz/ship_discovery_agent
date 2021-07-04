@@ -1,0 +1,7 @@
+Value IP (\S+)
+Value MAC (\S+)
+Value Iface (\S+)
+Value Vlan (\d+)
+
+Start
+  ^$IP\s+$MAC\s+$Iface\s+$Vlan -> Record
