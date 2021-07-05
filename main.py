@@ -8,6 +8,8 @@ import re
 from io import StringIO
 import sys
 import textfsm
+import ntc_templates
+from ntc_templates.parse import parse_output
 
 cfg = Config()
 client = SSHClient()
@@ -41,9 +43,12 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                     result = fsm.ParseText(string1)
                 print(fsm.header)
                 print(result)
-                nD[device] = {'type': 'Router', 'interface': {'columns': fsm.header,   'rows': result}}
-                json_network = json.dumps(nD, indent=2)
-                print(json_network)
+                #nD[device] = {'type': 'Router', 'interface': {'columns': fsm.header,   'rows': result}}
+                #json_network = json.dumps(nD, indent=2)
+                #print(json_network)
+                arp_parsed = parse_output(platform="cisco_ios", command="show arp", data=string1)
+                print(arp_parsed)
+
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
