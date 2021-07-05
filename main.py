@@ -41,19 +41,9 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
                     result = fsm.ParseText(string1)
                 print(fsm.header)
                 print(result)
-                """
-                n = 0
-                for line in string1.splitlines():
-                    if n == 0:
-                        columns = line
-                    elif n > 1:
-                        list1 = [line]
-                        rows.append(list1)
-                    n += 1
-                nD[device] = {'interface': {'columns': columns, 'rows': rows}}
+                nD[device] = {'type': 'Router', 'interface': {'columns': fsm.header,   'rows': result}}
                 json_network = json.dumps(nD, indent=2)
                 print(json_network)
-                """
         else:
             print('===================================')
             print(f'{stderr.read().decode("utf8")}')
