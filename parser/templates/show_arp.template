@@ -6,8 +6,6 @@ Value VLAN ((\d|-)+)
 Start
   ^Address\s+MacAddress\s+Iface\s+Vlan
   ^[-+\s+]+ -> Row
-  ^. -> Error
 
 Row
   ^${IP}\s+${MAC}\s+${INTERFACE}\s+${VLAN} -> Record
-  ^. -> Error
