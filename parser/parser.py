@@ -1,6 +1,6 @@
 import textfsm
 import os
-import .query.query
+import json 
 
 class Parser:
     def __init__(self):
@@ -18,7 +18,8 @@ class Parser:
             return self.json_data
 
     def parse_to_json(self):
+        json_dict = {}
         json_dict['columns'] = self.headers
         json_dict['rows'] = self.data
-        self.json_data = json.loads(json_dict)
+        self.json_data = json.dumps(json_dict)
 
