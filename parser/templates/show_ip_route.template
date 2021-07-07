@@ -1,0 +1,9 @@
+Value IP (([0-9]{1,3}\.){3}[0-9]{1,3})
+Value MAC (([0-9A-F]{2}[:-]){5}([0-9A-F]){2})
+
+Start
+  ^Address\s+MacAddress\s+Iface\s+Vlan
+  ^[-+\s+]+ -> Row
+
+Row
+  ^${IP}\s+${MAC}[\s+\S]* -> Record
