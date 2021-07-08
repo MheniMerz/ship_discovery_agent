@@ -34,6 +34,5 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
 client.close()
 
 for i in query_dictionary :
-    if 'show arp' in i:
-        result = parser.parse_query_result(query_dictionary[i])
-        print(result)
+    result = parser.parse_query_result(query_dictionary[i])
+    print(result)
