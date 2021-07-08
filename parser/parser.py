@@ -1,5 +1,6 @@
 import textfsm
 import os
+<<<<<<< HEAD
 import json 
 
 class Parser:
@@ -23,4 +24,15 @@ class Parser:
         json_dict['columns'] = self.headers
         json_dict['rows'] = self.data
         self.json_data = json.dumps(json_dict)
+=======
+
+class Parser:
+    def parse_show_arp(self, query_result: str):
+        template_path = os.path.join(os.path.dirname(__file__),'templates/show_arp.template')
+        with open(template_path) as template:
+            fsm = textfsm.TextFSM(template)
+            result = fsm.ParseText(query_result)
+            return result
+
+>>>>>>> 99b4ee7bf5724310b170f48dd63042e1e9ef8833
 

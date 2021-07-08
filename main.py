@@ -30,11 +30,20 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     for i in commandList:
         current_query = Query(device, i)
         current_query.send_query(client)
+<<<<<<< HEAD
         query_dictionary[current_query.device+'.'+current_query.cmd] = current_query
+=======
+        query_dictionary[current_query.device+'.'+current_query.cmd] = current_query.result
+>>>>>>> 99b4ee7bf5724310b170f48dd63042e1e9ef8833
         #print(current_query)
 client.close()
 
 for i in query_dictionary :
     if 'show arp' in i:
+<<<<<<< HEAD
         result = parser.parse_query_result(query_dictionary[i])
         print(result)
+=======
+        result = parser.parse_show_arp(query_dictionary[i])
+        print(result)
+>>>>>>> 99b4ee7bf5724310b170f48dd63042e1e9ef8833

@@ -1,11 +1,21 @@
 Value IP (([0-9]{1,3}\.){3}[0-9]{1,3})
+<<<<<<< HEAD
 Value MAC (([0-9A-F]{2}[:-]){5}([0-9A-F]){2})
 Value INTERFACE (\S+)
 Value VLAN ((\d|-)+)
+=======
+Value MAC (([0-9a-fA-F]{2}[:-]){5}([0-9a-fA-F]){2})
+Value IFACE (\S+)
+Value VLAN (([0-9]){3})
+>>>>>>> 99b4ee7bf5724310b170f48dd63042e1e9ef8833
 
 Start
   ^Address\s+MacAddress\s+Iface\s+Vlan
   ^[-+\s+]+ -> Row
 
 Row
+<<<<<<< HEAD
   ^${IP}\s+${MAC}\s+${INTERFACE}\s+${VLAN} -> Record
+=======
+  ^${IP}\s+${MAC}\s+${IFACE}\s+${VLAN}* -> Record
+>>>>>>> 99b4ee7bf5724310b170f48dd63042e1e9ef8833
