@@ -1,11 +1,11 @@
-Value interface (\w+)
-Value via (\w+)
-Value to (([0-9]{2}\:){2}([0-9]){2})
-Value type ([A-Za-z]\>\*)
+Value INTERFACE (\w+)
+Value VIA (\w+)
+Value TO (([0-9]{2}\:){2}([0-9]){2})
+Value TYPE ([A-Za-z]\>\*)
 
 Start
   ^interface\s+via\s+to\s+type
   ^[\s+]+ -> Row
 
 Row
-  ^${type}\s\S+\s+\S+\s+\S+\s+${via}\,\s+${interface}\,\s+${to}* -> Record
+  ^${TYPE}\s\S+\s+\S+\s+\S+\s+${VIA}\,\s+${INTERFACE}\,\s+${TO}* -> Record

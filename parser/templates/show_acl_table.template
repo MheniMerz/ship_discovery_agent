@@ -1,12 +1,12 @@
-Value Name (\S+)
-Value Type (\w+)
-Value Binding (\d+)
-Value Description (\w+)
-Value Stage (\w+)
+Value NAME (\S+)
+Value TYPE (\w+)
+Value BINDING (\d+)
+Value DESCRIPTION (\w+)
+Value STAGE (\w+)
 
 Start
   ^Name\s+Type\s+Binding\s+Description\s+Stage
   ^[-+\s+]+ -> Row
 
 Row
-  ^${Name}\s+${Type}\s+${Binding}\s+${Description}\s+${Stage} -> Record
+  ^${NAME}\s+${TYPE}\s+${BINDING}\s+${DESCRIPTION}\s+${STAGE} -> Record
