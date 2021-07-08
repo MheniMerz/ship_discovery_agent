@@ -8,12 +8,13 @@ class Parser:
         self.data = []
         self.json_data = {}
 
-    def parse_show_arp(self, query_result: str):
-        template_path = os.path.join(os.path.dirname(__file__),'templates/show_arp.template')
+    def parse_query_result(self, query):
+        template_name = query.cmd.replace(' ', '_')
+        template_path = os.path.join(os.path.dirname(__file__),'templates/'+template_name+'.template')
         with open(template_path) as template:
             fsm = textfsm.TextFSM(template)
             self.headers = fsm.header
-            self.data = fsm.ParseText(query_result)
+            self.data = fsm.ParseText(query.result)
             self.parse_to_json()
             return self.json_data
 
