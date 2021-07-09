@@ -22,4 +22,4 @@ class Parser:
         json_dict = {}
         json_dict['columns'] = self.headers
         json_dict['rows'] = self.data
-        self.json_data = json.dumps(json_dict)
+        self.json_data = json.dumps(json_dict, indent=4)
