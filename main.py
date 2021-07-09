@@ -13,7 +13,8 @@ parser = Parser()
 query_dictionary = {}
 
 # list of commands that will be run for each node on network
-commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule']
+commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
+               'vtysh -c "show interface"']
 
 # load host ssh keys
 client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
@@ -30,11 +31,11 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
     for i in commandList:
         current_query = Query(device, i)
         current_query.send_query(client)
-        query_dictionary[current_query.device+'.'+current_query.cmd] = current_query.result
-        #print(current_query)
+        query_dictionary[current_query.device + '.' + current_query.cmd] = current_query.result
+        # print(current_query)
 client.close()
 
-for i in query_dictionary :
+for i in query_dictionary:
     if 'show arp' in i:
         result = parser.parse_show_arp(query_dictionary[i])
         print(result)
