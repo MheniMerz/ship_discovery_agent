@@ -1,0 +1,11 @@
+Value NAME ((\w+)[0-9])
+Value VID (([0-9]{3}))
+Value MEMBER ((\w+)[0-9])
+Value MODE (\w+)
+
+Start
+  ^Name\s+Vid\s+Member\s+Mode
+  ^[-+\s+]+ -> Row
+
+Row
+  ^${NAME}\s+${VID}\s+${MEMBER}\s+${MODE}* -> Record

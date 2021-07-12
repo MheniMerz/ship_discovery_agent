@@ -1,0 +1,10 @@
+Value NAME (\w+)
+Value MACADDR (([a-z0-9]{2}\:){5}([a-z0-9]{2}))
+Value IPADDR (([a-z0-9]{2,4}\:\:)([a-z0-9]{2,4}\:){3}([a-z0-9]{4}\/[0-9]{2}))
+Value TYPE (\w+)
+
+Start
+  ^Interface ${NAME}
+  ^.*HWaddr: ${MACADDR}
+  ^.*inet6 ${IPADDR}
+  ^.*Interface Type ${TYPE} -> Record
