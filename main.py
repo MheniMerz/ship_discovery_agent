@@ -14,7 +14,7 @@ query_dictionary = {}
 
 # list of commands that will be run for each node on network
 commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
-               'vtysh -c "show interface"']
+               'vtysh -c "show interface"', 'show ip bgp neighbors']
 
 # load host ssh keys
 client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
