@@ -1,0 +1,9 @@
+Value NEIGHBORADDRESS (([0-9]{3}\.)([0-9]{1}\.){2}([0-9]{1}))
+Value REMOTEAS (\d+)
+Value LOCALAS (\d+)
+Value REMOTEROUTERID (([0-9]{2}\.)([0-9]{3}\.){2}([0-9]{3}))
+Value LOCALROUTERID (([0-9]{2}\.)([0-9]{3}\.){2}([0-9]{1}))
+
+Start
+  ^BGP neighbor is ${NEIGHBORADDRESS}, remote AS ${REMOTEAS}, local AS ${LOCALAS}
+  ^.*remote router ID ${REMOTEROUTERID}, local router ID ${LOCALROUTERID} -> Record
