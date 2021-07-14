@@ -32,10 +32,9 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         current_query = Query(device, i)
         current_query.send_query(client)
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
-        print(current_query)
+        # print(current_query)
 client.close()
 
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
     print(result)
-
