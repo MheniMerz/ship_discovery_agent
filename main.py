@@ -38,7 +38,10 @@ client.close()
 
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
+    print(result)
+    """
     nD[i] = {'interface': result}
     json_network = json.dumps(nD, indent=2)
     print(json_network)
     print(result)
+    """
