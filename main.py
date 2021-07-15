@@ -11,8 +11,7 @@ cfg = Config()
 client = SSHClient()
 parser = Parser()
 query_dictionary = {}
-nD = {}
-n = 0
+pythonDict = {}
 
 # list of commands that will be run for each node on network
 commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
@@ -34,14 +33,13 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         current_query = Query(device, i)
         current_query.send_query(client)
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
-        print(current_query)
+        # print(current_query)
 client.close()
-"""
+
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
-    nD[commandList[n]] = {'interface': result}
-    json_network = json.dumps(nD, indent=2)
+    pythonDict[commandList[query_dictionary.index(i)]] = {'interface': result}
+    json_network = json.dumps(pythonDict, indent=2)
     print(json_network)
     print(result)
-    n += 1
-"""
+
