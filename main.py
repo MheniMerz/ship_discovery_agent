@@ -37,6 +37,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
 client.close()
 
 for i in query_dictionary:
+    print(commandList[query_dictionary.index(i)])
     result = parser.parse_query_result(query_dictionary[i])
     pythonDict[commandList[query_dictionary.index(i)]] = {'interface': result}
     json_network = json.dumps(pythonDict, indent=2)
