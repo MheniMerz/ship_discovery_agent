@@ -41,6 +41,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
 client.close()
 
 for i in query_dictionary:
+    print("\n" + i + "\n")
     result = parser.parse_query_result(query_dictionary[i])
     if (n + 1) / len(commandList) == 1:
         value = json.dumps(outputDict)
