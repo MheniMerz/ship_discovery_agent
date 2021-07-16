@@ -48,10 +48,11 @@ for i in query_dictionary:
         indexNum = collections.OrderedDict(query_dictionary)
         jsonDict[deviceList[int(n / len(commandList))]] = value
     else:
-        outputDict[commandList[n % len(commandList)]] = result
+        #outputDict[commandList[n % len(commandList)]] = result
+        outputDict.add(commandList[n % len(commandList)], result)
         print("\n" + str(n) + "\n")
         print(outputDict)
-        print(jsonDict)
+        # print(jsonDict)
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
