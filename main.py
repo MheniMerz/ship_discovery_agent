@@ -45,7 +45,7 @@ for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
     if (n + 1) / len(commandList) == 1:
         value = json.dumps(outputDict)
-        jsonDict[deviceList[query_dictionary.keys().index(i)]] = value
+        jsonDict[deviceList[list(query_dictionary.keys()).index(i)]] = value
         n = 0
     else:
         outputDict[commandList[n]] = result
