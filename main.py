@@ -10,8 +10,10 @@ from parser.parser import Parser
 cfg = Config()
 client = SSHClient()
 parser = Parser()
+deviceList = []
 query_dictionary = {}
-pythonDict = {}
+jsonDict = {}
+outputDict = {}
 n = 0
 
 # list of commands that will be run for each node on network
@@ -30,20 +32,21 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         device,
         username=cfg.conf_file_contents['AUTH']['username'],
         password=cfg.conf_file_contents['AUTH']['password'])
+    deviceList.append(device)
     for i in commandList:
         current_query = Query(device, i)
         current_query.send_query(client)
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
-        # print(current_query)
+
 client.close()
 
 for i in query_dictionary:
-    print(len(query_dictionary))
-    print(len(commandList))
     result = parser.parse_query_result(query_dictionary[i])
-    pythonDict[commandList[n].split(' ', 1)[1]] = {'interface': result}
-    json_network = json.dumps(pythonDict, indent=2)
+    if (n+1)/8 == 1:
+        jsonDict[deviceList[n]] = {outputDict}
+    else:
+        outputDict[commandList[n]] = result
+    json_network = json.dumps(jsonDict, indent=2)
     print(json_network)
-    # print(result)
     n += 1
 
