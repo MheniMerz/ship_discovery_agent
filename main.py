@@ -41,7 +41,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
 client.close()
 
 for i in query_dictionary:
-    print("\n" + i + "\n")
+    # print("\n" + i + "\n")
     result = parser.parse_query_result(query_dictionary[i])
     if ((n + 1) / len(commandList)) == 1:
         value = json.dumps(outputDict)
@@ -50,9 +50,9 @@ for i in query_dictionary:
     else:
         outputDict[str(commandList[n % len(commandList)])] = str(result)
         print("\n" + str(n) + "\n")
-        print(outputDict)
+        # print(outputDict)
         # print(jsonDict)
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
-# print(removeBackslash)
+print(removeBackslash)
