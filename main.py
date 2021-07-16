@@ -43,7 +43,8 @@ client.close()
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
     if (n+1)/8 == 1:
-        jsonDict[deviceList[n]] = {outputDict}
+        value = frozenset(outputDict.items())
+        jsonDict[deviceList[n]] = {value}
     else:
         outputDict[commandList[n]] = result
     n += 1
