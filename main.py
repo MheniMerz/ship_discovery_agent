@@ -46,7 +46,7 @@ for i in query_dictionary:
     if ((n + 1) / len(commandList)) == 1:
         value = json.dumps(outputDict)
         indexNum = collections.OrderedDict(query_dictionary)
-        jsonDict[deviceList[int(n / len(commandList))]] = value
+        jsonDict[str(deviceList[int(n / len(commandList))])] = str(value)
     else:
         outputDict[str(commandList[n % len(commandList)])] = str(result)
         print("\n" + str(n) + "\n")
