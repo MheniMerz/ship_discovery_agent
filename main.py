@@ -42,14 +42,12 @@ client.close()
 
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
-    if (n+1)/8 == 1:
-        value = frozenset(outputDict.items())
+    if (n + 1) / 8 == 1:
+        value = json.dumps(outputDict)
         jsonDict[deviceList[n]] = {value}
-        n=0
+        n = 0
     else:
         outputDict[commandList[n]] = result
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 print(json_network)
-
-
