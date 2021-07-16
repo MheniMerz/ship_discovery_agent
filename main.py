@@ -46,7 +46,8 @@ for i in query_dictionary:
         jsonDict[deviceList[n]] = {outputDict}
     else:
         outputDict[commandList[n]] = result
-    json_network = json.dumps(jsonDict, indent=2)
-    print(json_network)
     n += 1
+json_network = json.dumps(jsonDict, indent=2)
+print(json_network)
+
 
