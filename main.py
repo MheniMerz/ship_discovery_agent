@@ -43,6 +43,8 @@ client.close()
 for i in query_dictionary:
     # print("\n" + i + "\n")
     result = parser.parse_query_result(query_dictionary[i])
+    print(result)
+    """
     if ((n + 1) / len(commandList)) == 1:
         value = json.dumps(outputDict)
         indexNum = collections.OrderedDict(query_dictionary)
@@ -57,3 +59,4 @@ for i in query_dictionary:
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
 #print(removeBackslash)
+"""
