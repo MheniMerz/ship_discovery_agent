@@ -45,6 +45,7 @@ for i in query_dictionary:
     if (n+1)/8 == 1:
         value = frozenset(outputDict.items())
         jsonDict[deviceList[n]] = {value}
+        n=0
     else:
         outputDict[commandList[n]] = result
     n += 1
