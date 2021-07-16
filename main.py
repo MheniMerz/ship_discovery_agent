@@ -6,6 +6,7 @@ from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
 from query.query import Query
 from parser.parser import Parser
+import collections
 
 cfg = Config()
 client = SSHClient()
@@ -45,13 +46,12 @@ for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
     if (n + 1) / len(commandList) == 1:
         value = json.dumps(outputDict)
-        jsonDict[deviceList[list(query_dictionary.keys()).index(i)]] = value
+        indexNum = collections.OrderedDict(query_dictionary)
+        jsonDict[deviceList[list(indexNum.keys()).index(i)]] = value
         n = 0
     else:
         outputDict[commandList[n]] = result
     n += 1
-print(jsonDict)
-print(outputDict)
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
 print(json_network)
