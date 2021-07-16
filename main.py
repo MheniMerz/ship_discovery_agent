@@ -50,9 +50,10 @@ for i in query_dictionary:
     else:
         outputDict[str(commandList[n % len(commandList)])] = str(result)
         print("\n" + str(n) + "\n")
-        # print(outputDict)
+        print(commandList[n % len(commandList)])
+        print(outputDict)
         # print(jsonDict)
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
-print(removeBackslash)
+#print(removeBackslash)
