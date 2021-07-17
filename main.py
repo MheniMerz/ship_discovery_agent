@@ -13,6 +13,7 @@ client = SSHClient()
 parser = Parser()
 deviceList = []
 query_dictionary = {}
+outputDict = {}
 jsonDict = {}
 n = 0
 
