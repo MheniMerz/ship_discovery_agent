@@ -53,7 +53,7 @@ for i in query_dictionary:
         # print("\n" + str(n) + "\n")
         # print(commandList[n % len(commandList)])
         # print(outputDict)
-        print(jsonDict)
+        #print(jsonDict)
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
