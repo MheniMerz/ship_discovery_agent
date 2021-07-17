@@ -41,12 +41,12 @@ client.close()
 
 for i in query_dictionary:
     # print("\n" + i + "\n")
-    outputDict = {}
     result = parser.parse_query_result(query_dictionary[i])
     if ((n + 1) / len(commandList)) == 1:
         value = json.dumps(outputDict)
         indexNum = collections.OrderedDict(query_dictionary)
         jsonDict[deviceList[int(n / len(commandList))]] = value
+        outputDict = {}
     else:
         outputDict[commandList[n % len(commandList)]] = result
         # print("\n" + str(n) + "\n")
