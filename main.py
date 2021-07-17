@@ -14,7 +14,6 @@ parser = Parser()
 deviceList = []
 query_dictionary = {}
 jsonDict = {}
-outputDict = {}
 n = 0
 
 # list of commands that will be run for each node on network
@@ -42,20 +41,20 @@ client.close()
 
 for i in query_dictionary:
     # print("\n" + i + "\n")
+    outputDict = {}
     result = parser.parse_query_result(query_dictionary[i])
     if ((n + 1) / len(commandList)) == 1:
         value = json.dumps(outputDict)
         indexNum = collections.OrderedDict(query_dictionary)
-        jsonDict[str(deviceList[int(n / len(commandList))])] = str(value)
+        jsonDict[deviceList[int(n / len(commandList))]] = value
     else:
-        outputDict["TEST" + str(n)] = str(result)
-        print("\n" + str(n) + "\n")
-        print(commandList[n % len(commandList)])
+        outputDict[commandList[n % len(commandList)]] = result
+        # print("\n" + str(n) + "\n")
+        # print(commandList[n % len(commandList)])
         # print(outputDict)
         print(jsonDict)
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
-# print(removeBackslash)
-# str(commandList[n % len(commandList)])
+print(removeBackslash)
 
