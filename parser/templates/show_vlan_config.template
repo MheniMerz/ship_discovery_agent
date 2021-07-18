@@ -1,10 +1,10 @@
-Value NAME ((\w+)[0-9])
-Value VID (([0-9]{3}))
-Value MEMBER ((\w+)[0-9])
-Value MODE (\w+)
+Value NAME (\w+)
+Value VID (\d+)
+Value MEMBER (\S+)
+Value MODE (\S+)
 
 Start
-  ^Name\s+Vid\s+Member\s+Mode
+  ^Name\s+VID\s+Member\s+Mode
   ^[-+\s+]+ -> Row
 
 Row
