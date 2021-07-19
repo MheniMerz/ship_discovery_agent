@@ -42,14 +42,12 @@ client.close()
 
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
+    outputDict[commandList[n % len(commandList)]] = result
     if ((n+1) % len(commandList)) == 0:
-        #outputDict[commandList[n % len(commandList)]] = result
         value = json.dumps(outputDict)
         indexNum = collections.OrderedDict(query_dictionary)
         jsonDict[deviceList[int(n / len(commandList))]] = value
         outputDict = {}
-    else:
-        outputDict[commandList[n % len(commandList)]] = result
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
