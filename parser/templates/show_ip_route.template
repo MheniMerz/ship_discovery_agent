@@ -1,6 +1,6 @@
 Value INTERFACE (\w+)
 Value VIA (\S+)
-Value TO (([0-9]{1,3}\.){3}([0-9]){1,3}\/[0-9]{1,3})
+Value TO (([0-9]{1,3}\.){3}([0-9]){1,3}\/[0-9]{1,2})
 Value TYPE ([A-Za-z]\>\*)
 
 Start
