@@ -51,4 +51,8 @@ for i in query_dictionary:
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
 removeBackslash = json_network.replace('\\', "")
+print(jsonDict)
+print("1")
+print(json_network)
+print("2")
 print(removeBackslash)
