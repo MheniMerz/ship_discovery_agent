@@ -48,7 +48,7 @@ for i in query_dictionary:
         jsonDict[deviceList[int(n / len(headerList))]] = outputDict
         outputDict = {}
     n += 1
-json_network = json.dumps(jsonDict)
+json_network = json.loads(jsonDict)
 # print(jsonDict)
 print(json_network)
 
