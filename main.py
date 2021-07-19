@@ -50,9 +50,6 @@ for i in query_dictionary:
         outputDict = {}
     n += 1
 json_network = json.dumps(jsonDict, indent=2)
-removeBackslash = json_network.replace('\\', "")
-#print(jsonDict)
-print("1")
+#removeBackslash = json_network.replace('\\', "")
 print(json_network)
-print("2")
-#print(removeBackslash)
+
