@@ -2,7 +2,7 @@
 Discovery agent  for SONiC spine leaf network
 
 ## project overview
-[ANTD](https://www.nist.gov/itl/antd) is building the next network management system, [the multiverse network management system](https://github.com/multiverse-nms) which will support multiple networking paradymes, essentially IP and NDN networks.
+[ANTD](https://www.nist.gov/itl/antd) is building the next network management system, [the multiverse network management system](https://github.com/multiverse-nms) which will support multiple networking paradigmes, essentially IP and NDN networks.
 The main conponent is the multiverse controller that defines the models and standards to describe and managed the network. The controller exposes APIs for Agents to communicate with it.
 the Agents role is to report about the state of the network or run commands issued by the controller to change a network configuration.
 
