@@ -6,6 +6,8 @@ Discovery agent  for SONiC spine leaf network
 The main conponent is the multiverse controller that defines the models and standards to describe and managed the network. The controller exposes APIs for Agents to communicate with it.
 the Agents role is to report about the state of the network or run commands issued by the controller to change a network configuration.
 
+![full_project_overview](docs/full_project_overview.png)
+
 ## project details
 The goal of this project is to build an agent that can run commands remotely on SONiC network devices through the SSH protocol, Retrieve multiple tables describing the state of the network (ARP table, Routing table, CAM table, Acess lists ...etc.), and parse the collected tables into a `JSON` format.
 
