@@ -18,7 +18,8 @@ jsonDict = {}
 n = 0
 
 # list of commands that will be run for each node on network
-commandList = ['show arp']
+commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
+               'vtysh -c "show interface"', 'show ip bgp neighbors']
 headerList = ['arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
 
 # load host ssh keys
@@ -35,17 +36,6 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         password=cfg.conf_file_contents['AUTH']['password'])
     deviceList.append(device)
     for i in commandList:
-        stdin, stdout, stderr = client.exec_command(i)
-        if stdout.channel.recv_exit_status() == 0:
-            print(f'{stdout.read().decode("utf8")}')
-        elif i == 'show arp' and device == 'border01':
-            print('===================================')
-            print(device)
-            print(f'{stderr.read().decode("utf8")}')
-            print('===================================')
-        stdin.close()
-        stdout.close()
-        stderr.close()
         current_query = Query(device, i)
         current_query.send_query(client)
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
@@ -59,5 +49,5 @@ for i in query_dictionary:
         outputDict = {}
     n += 1
 json_network = json.dumps(jsonDict)
-#print(json_network)
+print(json_network)
 
