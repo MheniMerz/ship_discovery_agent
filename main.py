@@ -40,6 +40,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
             print(f'{stdout.read().decode("utf8")}')
         elif i == 'show arp' and device == 'border01':
             print('===================================')
+            print(device)
             print(f'{stderr.read().decode("utf8")}')
             print('===================================')
         stdin.close()
