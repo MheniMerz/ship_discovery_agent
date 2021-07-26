@@ -39,7 +39,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         current_query = Query(device, i)
         current_query.send_query(client)
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
-        if i == 0:
+        if i == 'show arp':
             print(current_query)
 client.close()
 
