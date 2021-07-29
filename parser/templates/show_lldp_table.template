@@ -1,0 +1,10 @@
+Value LOCALPORT ((\w+)[0-9])
+Value REMOTEDEVICE ((\w+)[0-9])
+Value REMOTEPORT (\S+)
+
+Start
+  ^LocalPort\s+RemoteDevice\s+RemotePort
+  ^[-+\s+]+ -> Row
+
+Row
+  ^${LOCALPORT}\s+${REMOTEDEVICE}\s+${REMOTEPORT}* -> Record

@@ -1,6 +1,7 @@
 import textfsm
 import os
-import json 
+import json
+
 
 class Parser:
     def __init__(self):
@@ -10,6 +11,8 @@ class Parser:
 
     def parse_query_result(self, query):
         template_name = query.cmd.replace(' ', '_')
+        template_name = template_name.replace('"', '')
+
         template_path = os.path.join(os.path.dirname(__file__),'templates/'+template_name+'.template')
         with open(template_path) as template:
             fsm = textfsm.TextFSM(template)
@@ -22,4 +25,4 @@ class Parser:
         json_dict = {}
         json_dict['columns'] = self.headers
         json_dict['rows'] = self.data
-        self.json_data = json.dumps(json_dict, indent=4)
+        self.json_data = json_dict
