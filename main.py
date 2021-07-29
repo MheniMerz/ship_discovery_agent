@@ -50,4 +50,3 @@ for i in query_dictionary:
     n += 1
 json_network = json.dumps(jsonDict)
 print(json_network)
-

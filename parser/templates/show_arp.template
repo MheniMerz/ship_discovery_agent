@@ -3,6 +3,7 @@ Value MACADDR (([0-9a-fA-F]{2}[:-]){5}([0-9a-fA-F]){2})
 Value INTERFACE (\S+)
 Value VLAN (\d+)
 
+
 Start
   ^Address\s+MacAddress\s+Iface\s+Vlan
   ^[-+\s+]+ -> Row

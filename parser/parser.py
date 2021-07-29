@@ -2,6 +2,7 @@ import textfsm
 import os
 import json
 
+
 class Parser:
     def __init__(self):
         self.headers = []
@@ -11,6 +12,7 @@ class Parser:
     def parse_query_result(self, query):
         template_name = query.cmd.replace(' ', '_')
         template_name = template_name.replace('"', '')
+
         template_path = os.path.join(os.path.dirname(__file__),'templates/'+template_name+'.template')
         with open(template_path) as template:
             fsm = textfsm.TextFSM(template)
