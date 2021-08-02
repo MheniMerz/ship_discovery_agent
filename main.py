@@ -7,6 +7,7 @@ from config.config import Config
 from query.query import Query
 from parser.parser import Parser
 import collections
+import requests
 
 cfg = Config()
 client = SSHClient()
@@ -49,4 +50,16 @@ for i in query_dictionary:
         outputDict = {}
     n += 1
 json_network = json.dumps(jsonDict)
-print(json_network)
+
+# saving json output to a json file
+jsonFile = open("data.json", "w")
+jsonFile.write(json_network)
+jsonFile.close()
+
+# sending the json file to emulated controller
+url = "https://127.0.0.1:5000/about"
+
+headers = CaseInsensitiveDict()
+headers["Content-Type"] = "application/json"
+
+response = requests.post(url, headers=headers, data=jsonFile)
