@@ -61,6 +61,6 @@ url = "https://127.0.0.1:5000/upload"
 
 files = {'file': open('data.json', 'rb')}
 
-response = requests.post(url, file=files)
+response = requests.post(url, files=files)
 jsonFile.close()
 #test
