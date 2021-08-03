@@ -60,6 +60,5 @@ jsonFile.close()
 url = "https://127.0.0.1:5000/about"
 
 headers = {}
-headers["Content-Type"] = "application/json"
 
 response = requests.post(url, headers=headers, data=json_network)
