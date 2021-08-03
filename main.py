@@ -57,8 +57,9 @@ jsonFile.write(json_network)
 jsonFile.close()
 
 # sending the json file to emulated controller
-url = "https://127.0.0.1:5000/about"
+url = "https://127.0.0.1:5000/upload"
 
 headers = {}
 
 response = requests.post(url, headers=headers, data=json_network)
+#test
