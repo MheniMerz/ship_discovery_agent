@@ -61,7 +61,7 @@ url = "http://127.0.0.1:5000/upload"
 
 filedata = open("data.json", "rb")
 #filedata = {'file': ('data.json', open('data.json', 'rb'))}
-headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
+headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8', 'Connection': 'keep-alive',}
 
 response = requests.post(url, files={"file": filedata}, headers=headers)
 jsonFile.close()
