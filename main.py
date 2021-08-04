@@ -63,6 +63,5 @@ url = "http://127.0.0.1:5000/upload"
 filedata = open("data.json")
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
-response = requests.post(url, data=filedata, headers=headers)
+response = requests.post(url, files=filedata, headers=headers)
 jsonFile.close()
-#test
