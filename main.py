@@ -59,9 +59,9 @@ jsonFile.write(json_network)
 # sending the json file to emulated controller
 url = "http://127.0.0.1:5000/upload"
 
-#filedata = {'file': open('data.json', 'rb')}
-filedata = {'file': ('data.json', open('data.json', 'rb'))}
+filedata = open("data.json", "rb")
+#filedata = {'file': ('data.json', open('data.json', 'rb'))}
 headers = {'content-type': 'application/json', 'Accept-Charset': 'UTF-8'}
 
-response = requests.post(url, data=json_network, headers=headers)
+response = requests.post(url, files={"form_field_name": filedata}, headers=headers)
 jsonFile.close()
