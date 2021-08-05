@@ -56,7 +56,7 @@ json_network = json.dumps(jsonDict)
 jsonFile = open("data.json", "w+")
 jsonFile.write(json_network)
 
-def retry_on_connectionerror(f, max_retries=10):
+def retry_on_connectionerror(f, max_retries=20):
   retries = 0
   while retries < max_retries:
     try:
