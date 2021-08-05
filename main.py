@@ -71,8 +71,7 @@ def sendJSON():
     filedata = open('data.json', 'rb')
     #filedata = {'file': open("data.json", "rb")}
     #filedata = {'file': ('data.json', open('data.json', 'rb'))}
-    #headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
-    headers = {}
+    headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
     response = requests.post(url, files=filedata, headers=headers)
     print(response.text)
 
