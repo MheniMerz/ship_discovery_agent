@@ -66,7 +66,7 @@ def retry_on_connectionerror(f, max_retries=5):
   raise Exception("Maximum retries exceeded")
 
 # sending the json file to emulated controller
-def sendJSON()
+def sendJSON():
     url = 'http://127.0.0.1:5000/upload'
     filedata = open('data.json', 'r')
     #filedata = {'file': open("data.json", "rb")}
