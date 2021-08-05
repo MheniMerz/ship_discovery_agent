@@ -8,6 +8,7 @@ from query.query import Query
 from parser.parser import Parser
 import collections
 import requests
+from requests.exceptions import ConnectionError
 
 cfg = Config()
 client = SSHClient()
@@ -55,14 +56,28 @@ json_network = json.dumps(jsonDict)
 jsonFile = open("data.json", "w+")
 jsonFile.write(json_network)
 
+def retry_on_connectionerror(f, max_retries=5):
+  retries = 0
+  while retries < max_retries:
+    try:
+      return f()
+    except ConnectionError:
+      retries += 1
+  raise Exception("Maximum retries exceeded")
 
 # sending the json file to emulated controller
-url = 'http://127.0.0.1:5000/upload'
-filedata = open('data.json', 'r')
-#filedata = {'file': open("data.json", "rb")}
-#filedata = {'file': ('data.json', open('data.json', 'rb'))}
-#headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
-headers = {}
-response = requests.post(url, data=filedata, headers=headers)
+def sendJSON()
+    url = 'http://127.0.0.1:5000/upload'
+    filedata = open('data.json', 'r')
+    #filedata = {'file': open("data.json", "rb")}
+    #filedata = {'file': ('data.json', open('data.json', 'rb'))}
+    #headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
+    headers = {}
+    response = requests.post(url, data=filedata, headers=headers)
+    return response
+
+retry_on_connectionerror(sendJSON)
+
+
 jsonFile.close()
 filedata.close()
