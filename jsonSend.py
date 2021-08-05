@@ -1,6 +1,6 @@
 import requests
 
-class jsonSend:
+class Request:
     def __init__(self):
         self.url = ""
         self.filename = ""

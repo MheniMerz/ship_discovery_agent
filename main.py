@@ -6,7 +6,7 @@ from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
 from query.query import Query
 from parser.parser import Parser
-from jsonSend.jsonSend import jsonSend
+from jsonSend.jsonSend import Request
 import collections
 import requests
 from requests.exceptions import ConnectionError
