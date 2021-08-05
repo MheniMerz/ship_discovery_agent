@@ -43,6 +43,7 @@ for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
 client.close()
 
+# parsing data into JSON
 for i in query_dictionary:
     result = parser.parse_query_result(query_dictionary[i])
     outputDict[headerList[n % len(headerList)]] = result
@@ -52,13 +53,14 @@ for i in query_dictionary:
     n += 1
 json_network = json.dumps(jsonDict)
 
-# saving json output to a json file
+# saving JSON output to a JSON file
 jsonFile = open("data.json", "w+")
 jsonFile.write(json_network)
 
-# sending the json file to emulated controller
+# uploading JSON file to controller
 url = 'http://127.0.0.1:5000/upload'
 filename = 'data.json'
-response = jsonSend.postRequest(url, filename)
+request = jsonSend()
+response = request.postRequest(url, filename)
 print(response)
 jsonFile.close()
