@@ -56,22 +56,10 @@ json_network = json.dumps(jsonDict)
 jsonFile = open("data.json", "w+")
 jsonFile.write(json_network)
 
-def retry_on_connectionerror(f, max_retries=20):
-  retries = 0
-  while retries < max_retries:
-    try:
-      return f()
-    except ConnectionError:
-      retries += 1
-  raise Exception("Maximum retries exceeded")
-
 # sending the json file to emulated controller
-def sendJSON():
-    url = 'http://127.0.0.1:5000/upload'
-    filedata = {'filedata': ('data.json', open('data.json', 'rb'))}
-    response = requests.post(url, files=filedata)
-    print(response.text)
+url = 'http://127.0.0.1:5000/upload'
+filedata = {'filedata': ('data.json', open('data.json', 'rb'))}
+response = requests.post(url, files=filedata)
 
-retry_on_connectionerror(sendJSON)
 
 jsonFile.close()
