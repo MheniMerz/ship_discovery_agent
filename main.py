@@ -68,7 +68,7 @@ def retry_on_connectionerror(f, max_retries=10):
 # sending the json file to emulated controller
 def sendJSON():
     url = 'http://127.0.0.1:5000/upload'
-    filedata = open('data.json', 'rpdb')
+    filedata = open('data.json', 'rb')
     #filedata = {'file': open("data.json", "rb")}
     #filedata = {'file': ('data.json', open('data.json', 'rb'))}
     #headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
