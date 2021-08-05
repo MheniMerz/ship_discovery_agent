@@ -65,4 +65,4 @@ filedata = open('data.json', 'rb')
 headers = {}
 response = requests.post(url, data=filedata, headers=headers)
 jsonFile.close()
-fildata.close()
+filedata.close()
