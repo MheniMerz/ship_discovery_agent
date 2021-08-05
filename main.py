@@ -70,7 +70,7 @@ def sendJSON():
     url = 'http://127.0.0.1:5000/upload'
     #filedata = open('data.json', 'rb')
     #filedata = {'file': open("data.json", "rb")}
-    filedata = {'file': ('data.json', open('data.json', 'rb'))}
+    filedata = {'filedata': ('data.json', open('data.json', 'rb'))}
     #headers = {'Content-Type': 'application/json', 'Accept':'application/json'}
     response = requests.post(url, files=filedata, headers={})
     print(response.text)
