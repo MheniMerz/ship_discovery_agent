@@ -74,7 +74,7 @@ def sendJSON():
     #headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
     headers = {}
     response = requests.post(url, data=filedata, headers=headers)
-    responseDict = response.json()
+    responseDict = json.loads(response.text)
     print(responseDict)
 
 retry_on_connectionerror(sendJSON)
