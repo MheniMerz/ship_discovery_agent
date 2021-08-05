@@ -61,7 +61,7 @@ jsonFile.write(json_network)
 # uploading JSON file to controller
 url = 'http://127.0.0.1:5000/upload'
 filename = 'data.json'
-request = jsonSend()
-response = request.postRequest(url, filename)
+current_request = Request()
+response = current_request.postRequest(url, filename)
 print(response)
 jsonFile.close()
