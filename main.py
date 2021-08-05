@@ -64,4 +64,4 @@ filedata = open('data.json', 'rb')
 #headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
 headers = {}
 response = requests.post(url, data=filedata, headers=headers)
-jsonFile.close()
+#jsonFile.close()
