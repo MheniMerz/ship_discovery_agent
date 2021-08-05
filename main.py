@@ -61,7 +61,7 @@ url = 'http://127.0.0.1:5000/upload'
 filedata = open('data.json', 'rb')
 #filedata = {'file': open("data.json", "rb")}
 #filedata = {'file': ('data.json', open('data.json', 'rb'))}
-headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
-
-response = requests.post(url, data=json_network, headers=headers)
+#headers = {'Content-type': 'application/json', 'Accept' : 'application/json'}
+headers = {}
+response = requests.post(url, data=filedata, headers=headers)
 jsonFile.close()
