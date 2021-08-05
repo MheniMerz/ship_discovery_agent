@@ -77,6 +77,4 @@ def sendJSON():
 
 retry_on_connectionerror(sendJSON)
 
-
 jsonFile.close()
-filedata.close()
