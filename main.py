@@ -6,7 +6,7 @@ from paramiko import SSHClient, AutoAddPolicy
 from config.config import Config
 from query.query import Query
 from parser.parser import Parser
-from jsonSend.jsonSend import * 
+from jsonSend.jsonSend import jsonSend
 import collections
 import requests
 from requests.exceptions import ConnectionError
@@ -61,6 +61,7 @@ jsonFile.write(json_network)
 # uploading JSON file to controller
 url = 'http://127.0.0.1:5000/upload'
 filename = 'data.json'
-response = jsonSend.postRequest(url, filename)
+request = jsonSend()
+response = request.postRequest(url, filename)
 print(response)
 jsonFile.close()
