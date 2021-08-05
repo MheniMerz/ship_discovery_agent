@@ -62,6 +62,5 @@ jsonFile.write(json_network)
 url = 'http://127.0.0.1:5000/upload'
 filename = 'data.json'
 current_request = Request()
-response = current_request.postRequest(url, filename)
-print(response)
+current_request.postRequest(url, filename)
 jsonFile.close()
