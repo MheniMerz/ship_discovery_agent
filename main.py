@@ -62,12 +62,12 @@ def jsonParse():
     jsonFile.close()
 
 def jsonSend():
-    #url = 'http://127.0.0.1:5000/upload'
+    url = 'http://127.0.0.1:5000/upload'
     filename = 'data.json'
 
     # uploading JSON file to controller
     current_request = Request()
-    current_request.postRequest(cfg.url_base, filename)
+    current_request.postRequest(url, filename)
 
 if __name__ == '__main__':
     #load ssh keys and set up known_hosts
