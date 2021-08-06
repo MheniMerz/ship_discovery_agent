@@ -67,7 +67,7 @@ def jsonSend():
 
     # uploading JSON file to controller
     current_request = Request()
-    current_request.postRequest(cfg.url_base, filename)
+    current_request.postRequest(str(cfg.url_base), filename)
 
 if __name__ == '__main__':
     #load ssh keys and set up known_hosts
