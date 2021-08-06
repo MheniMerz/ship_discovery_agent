@@ -17,7 +17,6 @@ parser = Parser()
 deviceList = []
 query_dictionary = {}
 jsonDict = {}
-n = 0
 
 # list of commands that will be run for each node on network
 commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
@@ -46,6 +45,7 @@ def collectData():
 
 def jsonParse():
     outputDict = {}
+    n = 0
     # parsing data into JSON
     for i in query_dictionary:
         result = parser.parse_query_result(query_dictionary[i])
