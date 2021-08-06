@@ -72,11 +72,11 @@ def jsonSend():
 
 if __name__ == '__main__':
     cfg = Config()
-    timer = 30
+    local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
-    print(str(cfg.repeat_timer))
-    if(timer == None):
+    print(str(cfg.repeat_time))
+    if(cfg.repeat_time == None):
         collectData()
         jsonParse()
         jsonSend()
@@ -85,4 +85,4 @@ if __name__ == '__main__':
             collectData()
             jsonParse()
             jsonSend()
-            time.sleep(int(timer))
+            time.sleep(int(cfg.repeat_time))
