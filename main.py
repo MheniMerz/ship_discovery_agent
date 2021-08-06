@@ -16,7 +16,6 @@ client = SSHClient()
 parser = Parser()
 deviceList = []
 query_dictionary = {}
-outputDict = {}
 jsonDict = {}
 n = 0
 
@@ -46,6 +45,7 @@ def collectData():
     client.close()
 
 def jsonParse():
+    outputDict = {}
     # parsing data into JSON
     for i in query_dictionary:
         result = parser.parse_query_result(query_dictionary[i])
