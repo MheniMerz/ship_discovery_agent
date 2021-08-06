@@ -59,6 +59,7 @@ def jsonParse():
     # saving JSON output to a JSON file
     jsonFile = open("data.json", "w+")
     jsonFile.write(json_network)
+    jsonFile.close()
 
 def jsonSend():
     url = 'http://127.0.0.1:5000/upload'
@@ -67,7 +68,6 @@ def jsonSend():
     # uploading JSON file to controller
     current_request = Request()
     current_request.postRequest(url, filename)
-    jsonFile.close()
 
 if __name__ == '__main__':
     #load ssh keys and set up known_hosts
