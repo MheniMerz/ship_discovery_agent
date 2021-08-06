@@ -11,7 +11,7 @@ import collections
 import requests
 from requests.exceptions import ConnectionError
 
-cfg = Config()
+
 client = SSHClient()
 parser = Parser()
 deviceList = []
@@ -70,10 +70,10 @@ def jsonSend():
     current_request.postRequest(url, filename)
 
 if __name__ == '__main__':
+    cfg = Config()
     #load ssh keys and set up known_hosts
     loadSSH()
-    print(str(cfg.repeat_timer))
-    print(int(cfg.repeat_timer))
+    print(str(cfg.repeat_timer)))
     if(cfg.repeat_timer == None):
         collectData()
         jsonParse()
