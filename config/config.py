@@ -1,6 +1,6 @@
 import os
 import configparser
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 
 
 class Config:
