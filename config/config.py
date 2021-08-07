@@ -4,12 +4,9 @@ import configparser
 
 class Config:
     def __init__(self):
-        self.repeat_timer = os.environ.get('REPEAT_TIMER')
+        repeat_timer = os.environ.get('REPEAT_TIMER')
         self.conf_file_path = os.environ.get('CONF_FILE')
         self.conf_file_contents = self.read_config()
-
-    def getTimer(self):
-        return os.environ.get('REPEAT_TIMER')
 
     def read_config(self):
         # open config file
