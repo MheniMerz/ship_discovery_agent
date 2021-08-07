@@ -75,7 +75,7 @@ if __name__ == '__main__':
     local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
-    print(cfg.repeat_timer)
+    print(os.environ.get('REPEAT_TIMER'))
     if(cfg.repeat_timer == None):
         collectData()
         jsonParse()
