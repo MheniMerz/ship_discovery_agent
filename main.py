@@ -75,8 +75,6 @@ if __name__ == '__main__':
     local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
-    print(cfg.environment)
-
     print(cfg.repeat_timer)
     if(cfg.repeat_timer == None):
         collectData()
