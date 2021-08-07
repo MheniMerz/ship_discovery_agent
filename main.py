@@ -79,7 +79,8 @@ if __name__ == '__main__':
     local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
-    repeat = os.getenv('REPEAT_TIMER')
+    os.environ['REPEAT'] = '30'
+    repeat = os.environ.get('REPEAT')
     print(repeat)
     if(cfg.repeat_timer == None):
         collectData()
