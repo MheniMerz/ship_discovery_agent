@@ -11,7 +11,7 @@ from query.query import Query
 from parser.parser import Parser
 from request.request import Request
 from requests.exceptions import ConnectionError
-s
+
 from dotenv import load_dotenv
 
 load_dotenv()
