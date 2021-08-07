@@ -11,6 +11,10 @@ from query.query import Query
 from parser.parser import Parser
 from request.request import Request
 from requests.exceptions import ConnectionError
+s
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 client = SSHClient()
@@ -75,7 +79,8 @@ if __name__ == '__main__':
     local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
-    print(cfg.repeat_timer)
+    repeat = os.getenv('REPEAT_TIMER')
+    print(repeat)
     if(cfg.repeat_timer == None):
         collectData()
         jsonParse()
