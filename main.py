@@ -10,7 +10,6 @@ from config.config import Config
 from query.query import Query
 from parser.parser import Parser
 from request.request import Request
-from requests.exceptions import ConnectionError
 
 client = SSHClient()
 parser = Parser()
@@ -62,7 +61,6 @@ def jsonParse():
     jsonFile.close()
 
 def jsonSend():
-    url = 'http://127.0.0.1:5000/upload'
     filename = 'data.json'
 
     # uploading JSON file to controller
