@@ -12,11 +12,6 @@ from parser.parser import Parser
 from request.request import Request
 from requests.exceptions import ConnectionError
 
-from dotenv import load_dotenv
-
-load_dotenv()
-
-
 client = SSHClient()
 parser = Parser()
 deviceList = []
@@ -81,7 +76,7 @@ if __name__ == '__main__':
     loadSSH()
     os.environ['REPEAT'] = '30'
     repeat = os.environ.get('REPEAT')
-    print(repeat)
+    print(cfg.repeat_timer)
     if(cfg.repeat_timer == None):
         collectData()
         jsonParse()
