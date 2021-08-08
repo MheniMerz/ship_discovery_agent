@@ -67,11 +67,10 @@ def jsonSend():
 
     # uploading JSON file to controller
     current_request = Request()
-    current_request.postRequest(url, filename)
+    current_request.postRequest(cfg.controller_url, filename)
 
 if __name__ == '__main__':
     cfg = Config()
-    local_timer = 30
     #load ssh keys and set up known_hosts
     loadSSH()
     if(cfg.repeat_timer == None):

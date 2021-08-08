@@ -9,6 +9,7 @@ load_dotenv(dotenv_path=dotenv_path)
 class Config:
     def __init__(self):
         self.repeat_timer = os.environ.get('REPEAT_TIMER')
+        self.controller_url = os.environ.get('CONTROLLER_URL')
         self.conf_file_path = os.environ.get('CONF_FILE')
         self.conf_file_contents = self.read_config()
 
