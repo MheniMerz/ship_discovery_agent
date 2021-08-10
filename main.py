@@ -29,7 +29,7 @@ def loadSSH():
     client.set_missing_host_key_policy(AutoAddPolicy())
     direc1 = os.getcwd
     print(direc1)
-
+#
 def collectData():
     direc = os.getcwd
     print(direc)
