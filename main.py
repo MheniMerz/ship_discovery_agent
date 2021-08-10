@@ -27,6 +27,8 @@ def loadSSH():
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
+    direc1 = os.getcwd
+    print(direc1)
 
 def collectData():
     direc = os.getcwd
