@@ -11,6 +11,7 @@ from query.query import Query
 from parser.parser import Parser
 from request.request import Request
 from pathlib import Path
+import glob
 
 client = SSHClient()
 parser = Parser()
@@ -28,10 +29,8 @@ def loadSSH():
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
-    print(Path.cwd())
-#
+    print(glob.glob("/ship_discovery_agent/*"))
 def collectData():
-    print(Path.cwd())
     # read config file and foreach host create connection
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
