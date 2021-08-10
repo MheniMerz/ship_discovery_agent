@@ -1,9 +1,9 @@
 FROM python:3
 
-WORKDIR /discovery_agent_service
+WORKDIR /home/cumulus/discovery_agent_service
 
-COPY requirements.txt /discovery_agent_service
-COPY config/config.ini /discovery_agent_service
+COPY requirements.txt /home/cumulus/discovery_agent_service
+COPY config/config.ini /home/cumulus/discovery_agent_service
 COPY . .
 
 RUN pip3 install -r requirements.txt
