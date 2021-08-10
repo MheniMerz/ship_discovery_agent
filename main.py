@@ -10,6 +10,7 @@ from config.config import Config
 from query.query import Query
 from parser.parser import Parser
 from request.request import Request
+from pathlib import Path
 
 client = SSHClient()
 parser = Parser()
@@ -27,12 +28,10 @@ def loadSSH():
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
-    direc1 = os.getcwd
-    print(direc1)
+    print(Path.cwd())
 #
 def collectData():
-    direc = os.getcwd
-    print(direc)
+    print(Path.cwd())
     # read config file and foreach host create connection
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
