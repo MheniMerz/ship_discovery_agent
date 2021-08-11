@@ -7,7 +7,6 @@ COPY config/config.ini /discovery_agent_service
 COPY . .
 
 RUN pip3 install -r requirements.txt
-RUN source init.sh
 RUN mkdir -p /root/.ssh
 RUN chmod 0700 /root/.ssh
 RUN ssh-keyscan example.com > /root/.ssh/known_hosts
@@ -15,4 +14,4 @@ RUN ssh-keyscan example.com > /root/.ssh/known_hosts
 ENV REPEAT_TIMER 30
 ENV CONF_FILE .
 
-CMD [ "python", "./main.py" ]
+CMD [ "source", "./init.sh" ]
