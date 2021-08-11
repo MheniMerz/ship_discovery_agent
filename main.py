@@ -34,7 +34,7 @@ def loadSSH():
     #direcList = glob.glob("/*")
     #for direc in direcList:
         #print(glob.glob(direc + "/*"))
-    print(cfg.conf_file_contents)
+    print(json.loads(cfg.conf_file_contents))
 def collectData():
     # read config file and foreach host create connection
     config = configparser.ConfigParser()
