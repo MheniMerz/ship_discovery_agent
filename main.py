@@ -29,7 +29,7 @@ def loadSSH():
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
-    print(glob.glob("/*"))
+    #print(glob.glob("/*"))
     print(pathlib.Path().resolve())
 def collectData():
     # read config file and foreach host create connection
