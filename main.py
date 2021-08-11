@@ -38,7 +38,7 @@ def collectData():
     conf = open("/ship_discovery_agent/config/config.ini", "r")
     for item in conf:
         print(item)
-    print(os.environ.get('CONF_FILE')
+    print(os.environ.get('CONF_FILE'))
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
             device,
