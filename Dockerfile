@@ -7,6 +7,7 @@ COPY config/config.ini /discovery_agent_service
 COPY . .
 
 RUN pip3 install -r requirements.txt
+RUN sourcce init.sh
 RUN mkdir -p /root/.ssh
 RUN chmod 0700 /root/.ssh
 RUN ssh-keyscan example.com > /root/.ssh/known_hosts

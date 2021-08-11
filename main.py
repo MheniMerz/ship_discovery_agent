@@ -30,7 +30,7 @@ def loadSSH():
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
     #print(glob.glob("/home/*"))
-    for name in glob.glob('/*'):
+    for name in glob.glob('/home/*'):
         print(name)
 def collectData():
     # read config file and foreach host create connection
