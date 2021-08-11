@@ -12,7 +12,7 @@ class Config:
         # open config file
         try:
             config = configparser.ConfigParser()
-            config.read(self.conf_file_path)
+            config.read("/ship_discovery_agent/config/config.ini")
             config.sections()
             return config
         except IOError:
