@@ -12,6 +12,7 @@ from parser.parser import Parser
 from request.request import Request
 from pathlib import Path
 import glob
+import configparser
 
 client = SSHClient()
 parser = Parser()
@@ -35,7 +36,10 @@ def loadSSH():
         print(glob.glob("/" + direc + "/*"))
 def collectData():
     # read config file and foreach host create connection
-    conf = "/ship_discovery_agent/config/config.ini"
+
+    config = configparser.ConfigParser()
+    config.read("ship_discovery_agent/config/config.ini")
+    print(config.sections())
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
             device,
