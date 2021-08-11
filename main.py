@@ -36,9 +36,6 @@ def loadSSH():
 def collectData():
     # read config file and foreach host create connection
     conf = "/ship_discovery_agent/config/config.ini"
-    print(os.environ.get('CONF_FILE'))
-    for key in conf['TARGETS']['devices']:
-        print(key)
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
             device,
