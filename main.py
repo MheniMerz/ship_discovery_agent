@@ -38,9 +38,9 @@ def collectData():
     # read config file and foreach host create connection
 
     config = configparser.ConfigParser()
-    config.read("/config/config.ini")
+    config.read("/ship_discovery_agent/config/config.ini")
     print(config['TARGETS']['devices'])
-    print(config.read(os.path.expanduser("/ship_discovery_agent/config/config.ini")))
+    print(config.read(os.path.expanduser("/config/config.ini")))
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
             device,
