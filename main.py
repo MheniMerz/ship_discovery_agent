@@ -39,6 +39,7 @@ def collectData():
     for item in conf:
         print(item)
     print(os.environ.get('CONF_FILE'))
+    print(cfg.conf_file_contents)
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
             device,
