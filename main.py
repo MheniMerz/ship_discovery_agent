@@ -39,7 +39,7 @@ def collectData():
 
     config = configparser.ConfigParser()
     config.read("/ship_discovery_agent/config/config.ini")
-    print(config.sections())
+    print(config['TARGETS']['devices'])
     print(config.read(os.path.expanduser('~/config.ini')))
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
