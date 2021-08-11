@@ -33,12 +33,12 @@ def loadSSH():
     print(glob.glob("/*"))
     direcList = glob.glob("/*")
     for direc in direcList:
-        print(glob.glob("/" + direc + "/*"))
+        print(glob.glob(direc + "/*"))
 def collectData():
     # read config file and foreach host create connection
 
     config = configparser.ConfigParser()
-    config.read("ship_discovery_agent/config/config.ini")
+    config.read("/ship_discovery_agent/config/config.ini")
     print(config.sections())
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
         client.connect(
