@@ -15,5 +15,4 @@ RUN ssh-keyscan example.com > /root/.ssh/known_hosts
 ENV REPEAT_TIMER 30
 ENV CONF_FILE .
 
-ENTRYPOINT ["init.sh"]
-CMD [ "python3", "main.py" ]
+CMD [ "/bin/bash", "init.sh" ]
