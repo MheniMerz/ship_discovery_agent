@@ -14,4 +14,4 @@ RUN ssh-keyscan example.com > /root/.ssh/known_hosts
 ENV REPEAT_TIMER 30
 ENV CONF_FILE .
 
-CMD [ "source", "./init.sh" ]
+CMD [ "./init.sh" ]
