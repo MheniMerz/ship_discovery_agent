@@ -1,9 +1,9 @@
 FROM python:3
 
-WORKDIR /discovery_agent_service
+WORKDIR /ship_discovery_agent
 
-COPY requirements.txt /discovery_agent_service
-COPY config/config.ini /discovery_agent_service
+COPY requirements.txt /ship_discovery_agent
+COPY config/config.ini /ship_discovery_agent
 COPY . .
 
 RUN pip3 install -r requirements.txt
