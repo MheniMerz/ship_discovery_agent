@@ -4,7 +4,7 @@ WORKDIR /discovery_agent_service
 
 COPY requirements.txt /discovery_agent_service
 COPY config/config.ini /discovery_agent_service
-COPY ./init.sh
+COPY ./init.sh /discovery_agent_service
 COPY . .
 
 RUN pip3 install -r requirements.txt
