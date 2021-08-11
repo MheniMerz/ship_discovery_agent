@@ -30,6 +30,7 @@ def loadSSH():
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
     print(glob.glob("/*"))
+    print(pathlib.Path().resolve())
 def collectData():
     # read config file and foreach host create connection
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
