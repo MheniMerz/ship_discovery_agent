@@ -6,4 +6,4 @@ touch ~/.ssh/known_hosts
 awk '{print "export "$0}' config/env_vars.env >> ~/.bashrc
 . ~/.bashrc
 
- python3 main.py
+#python3 main.py
