@@ -10,9 +10,6 @@ from config.config import Config
 from query.query import Query
 from parser.parser import Parser
 from request.request import Request
-from pathlib import Path
-import glob
-import configparser
 
 client = SSHClient()
 parser = Parser()
@@ -37,8 +34,6 @@ def collectData():
             device,
             username=cfg.conf_file_contents['AUTH']['username'],
             password=cfg.conf_file_contents['AUTH']['password'])
-            #username="admin",
-            #password="YourPaSsWoRd")
         deviceList.append(device)
         for i in commandList:
             current_query = Query(device, i)
@@ -66,7 +61,6 @@ def jsonParse():
 
 def jsonSend():
     filename = 'data.json'
-
     # uploading JSON file to controller
     current_request = Request()
     current_request.postRequest(cfg.controller_url, filename)
