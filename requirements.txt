@@ -3,4 +3,3 @@ configparser==5.0.0
 textfsm==1.1.2
 Flask==1.1.2
 requests==2.25.0
-python-dotenv==0.10.1
