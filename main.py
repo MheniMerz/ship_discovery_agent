@@ -43,7 +43,7 @@ def collectData():
         client.connect(
             device,
             username=cfg.conf_file_contents['AUTH']['username'],
-            password=cfg.conf_file_contents['AUTH']['password'])
+            #password=cfg.conf_file_contents['AUTH']['password'])
         deviceList.append(device)
         for i in commandList:
             current_query = Query(device, i)
