@@ -11,7 +11,7 @@ RUN mkdir -p /root/.ssh
 RUN chmod 0700 /root/.ssh
 RUN ssh-keyscan example.com > /root/.ssh/known_hosts
 
-ENV REPEAT_TIMER None
+ENV REPEAT_TIMER 10
 ENV CONF_FILE '/ship_discovery_agent/config/config.ini'
 ENV CONTROLLER_URL 'http://127.0.0.1:5000/upload'
 
