@@ -40,9 +40,10 @@ def collectData():
     config = configparser.ConfigParser()
     config.read("/ship_discovery_agent/config/config.ini")
     for device in json.loads(cfg.conf_file_contents['TARGETS']['devices']):
+        print(device)
         client.connect(
             device,
-            #username=cfg.conf_file_contents['AUTH']['username'],
+            username=cfg.conf_file_contents['AUTH']['username'],
             password=cfg.conf_file_contents['AUTH']['password'])
         deviceList.append(device)
         for i in commandList:
