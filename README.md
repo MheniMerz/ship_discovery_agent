@@ -15,13 +15,12 @@ The goal of this project is to build an agent that can run commands remotely on 
 
 ### Setting up the Environment
 
-1. create an account with [https://air.nvidia.com/](https://air.nvidia.com/)
-2. click on `Build Simulation` and choose `SONiC demo`
-3. wait for the nodes to become available
+1. Create an account with [https://air.nvidia.com/](https://air.nvidia.com/)
+2. Click on `Build Simulation` and choose `SONiC demo`
+3. Wait for the nodes to become available
 
 Once the SONiC demo network is created, it comes with a default configuration.
-
-However, we want to load our own configuration. To achieve that follow these steps
+However, we want to load our own configuration. To achieve that follow these steps.
 
 ```
 	git clone https://gitlab.com/hani.merzouki/sonic-demo
@@ -29,7 +28,7 @@ However, we want to load our own configuration. To achieve that follow these ste
 	ansible-playbook -i inventory/pod1/hosts playbooks/restore_sonic.yml
 	ansible-playbook -i inventory/pod1/hosts playbooks/restore_files.yml
 ```
-running the ansible-playbooks takes a while, so be patient.
+Note: Running the ansible-playbooks may take a while.
 
 ### Getting and Running the Agent
 
