@@ -15,8 +15,8 @@ The goal of this project is to build an agent that can run commands remotely on 
 
 ### Requirements
 
-⋅⋅* git
-⋅⋅* docker (>=19.03)
+* git
+* docker (>=19.03)
 
 ### Setting up the Environment
 
