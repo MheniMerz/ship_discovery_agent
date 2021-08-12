@@ -13,6 +13,11 @@ The goal of this project is to build an agent that can run commands remotely on 
 
 ![overview_diagram](docs/overview.png)
 
+### Requirements
+
+⋅⋅* git
+⋅⋅* docker (>=19.03)
+
 ### Setting up the Environment
 
 1. Create an account with [https://air.nvidia.com/](https://air.nvidia.com/)
