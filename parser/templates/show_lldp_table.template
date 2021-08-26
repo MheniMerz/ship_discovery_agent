@@ -7,4 +7,4 @@ Start
   ^[-+\s+]+ -> Row
 
 Row
-  ^${LOCALPORT}\s+${REMOTEDEVICE}\s+${REMOTEPORT}* -> Record
+  ^${LOCALPORT}\s+${REMOTEDEVICE}\s+\S+\s+\S+\s+${REMOTEPORT}* -> Record
