@@ -1,9 +1,9 @@
 Value LOCALADDRESS (([0-9]{1,3}\.){3}([0-9]{1,3}))
 Value NEIGHBORADDRESS (([0-9]{1,3}\.){3}([0-9]{1,3}))
-Value REMOTEAS (\d+)
 Value LOCALAS (\d+)
-Value REMOTEROUTERID (([0-9]{1,3}\.){3}([0-9]{1,3}))
+Value REMOTEAS (\d+)
 Value LOCALROUTERID (([0-9]{1,3}\.){3}([0-9]{1,3}))
+Value REMOTEROUTERID (([0-9]{1,3}\.){3}([0-9]{1,3}))
 Value BGPSTATE (\w+)
 
 
