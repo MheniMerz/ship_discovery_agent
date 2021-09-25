@@ -2,7 +2,7 @@ Value TABLE (\S+)
 Value RULE (\S+)
 Value PRIORITY (\d+)
 Value ACTION (\w+)
-Value MATCH (\S+)
+Value MATCH (\S+\s\S+)
 
 Start
   ^Table\s+Rule\s+Priority\s+Action\s+Match
