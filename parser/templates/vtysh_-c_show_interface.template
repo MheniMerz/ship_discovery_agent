@@ -1,10 +1,16 @@
 Value NAME (\w+)
+Value ADMIN_STATUS (\w+)
+Value INDEX (\d+)
+Value MTU (\d+)
+Value SPEED (\d+)
 Value MACADDR (([a-z0-9]{2}\:){5}([a-z0-9]{2}))
 Value IPADDR (([0-9]{1,3}\.){3}([0-9]{1,3}\/[0-9]{1,2}))
 Value TYPE (\w+)
 
 Start
-  ^Interface ${NAME}
+  ^Interface ${NAME} is ${ADMIN_STATUS}
+  ^.*index\s+${INDEX}[\s\S]+mtu\s+${MTU}\sspeed\s+${SPEED}
   ^.*HWaddr: ${MACADDR}
   ^.*inet ${IPADDR}
   ^.*Interface Type ${TYPE} -> Record
+
