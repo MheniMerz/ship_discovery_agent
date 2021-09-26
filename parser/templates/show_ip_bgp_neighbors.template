@@ -4,6 +4,8 @@ Value LOCALAS (\d+)
 Value REMOTEAS (\d+)
 Value LOCALROUTERID (([0-9]{1,3}\.){3}([0-9]{1,3}))
 Value REMOTEROUTERID (([0-9]{1,3}\.){3}([0-9]{1,3}))
+Value HOLDTIME (\d+)
+Value KEEPALIVE (\d+)
 Value BGPSTATE (\w+)
 
 
@@ -11,5 +13,5 @@ Start
   ^BGP neighbor is ${NEIGHBORADDRESS}, remote AS ${REMOTEAS}, local AS ${LOCALAS}
   ^.*remote router ID ${REMOTEROUTERID}, local router ID ${LOCALROUTERID}
   ^.*BGP state = ${BGPSTATE}.*
+  ^.*Hold[\s\S]+${HOLDTIME},\skeepalive[\s\S]+${KEEPALIVE}.*
   ^Local host:\s+${LOCALADDRESS}.* -> Record
-
