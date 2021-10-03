@@ -27,7 +27,7 @@ def loadSSH():
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
     # known_hosts policy
     client.set_missing_host_key_policy(AutoAddPolicy())
-def collectData():
+def collectRouterData():
     # read config file and foreach host create connection
     for device in json.loads(cfg.conf_file_contents['TARGETS']['routers']):
         client.connect(
@@ -70,12 +70,12 @@ if __name__ == '__main__':
     #load ssh keys and set up known_hosts
     loadSSH()
     if(cfg.repeat_timer == None):
-        collectData()
+        collectRouterData()
         jsonParse()
         jsonSend()
     else:
         while(True):
-            collectData()
+            collectRouterData()
             jsonParse()
             jsonSend()
             time.sleep(int(cfg.repeat_timer))
