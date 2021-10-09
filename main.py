@@ -75,7 +75,7 @@ if __name__ == '__main__':
         jsonSend()
     else:
         while(True):
-            collectRouterData()
+            collectData()
             jsonParse()
             jsonSend()
             time.sleep(int(cfg.repeat_timer))
