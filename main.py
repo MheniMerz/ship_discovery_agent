@@ -18,9 +18,9 @@ query_dictionary = {}
 jsonDict = {}
 
 # list of commands that will be run for each node on network
-commandList = ['show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
-               'vtysh -c "show interface"', 'show ip bgp neighbors', 'show platform summary']
-headerList = ['arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
+commandList = ['show platform summary', 'show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
+               'vtysh -c "show interface"', 'show ip bgp neighbors']
+headerList = ['device_metadata', 'arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
 
 def loadSSH():
     # load host ssh keys
