@@ -18,7 +18,7 @@ query_dictionary = {}
 jsonDict = {}
 
 # list of commands that will be run for each node on network
-commandList = ['show platform summary', 'show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
+commandList = ['show runningconfiguration all | grep -A 11 -i metadata', 'show arp', 'show ip route', 'show acl table', 'show acl rule', 'show lldp table', 'show vlan config',
                'vtysh -c "show interface"', 'show ip bgp neighbors']
 headerList = ['device_metadata', 'arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
 

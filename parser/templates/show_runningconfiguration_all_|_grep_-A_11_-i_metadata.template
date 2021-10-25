@@ -1,0 +1,29 @@
+Value BGP_ASN (\d+)
+Value BGP_STATUS (\w+)
+Value HOSTNAME (\w+)
+Value HWSKU (\S+)
+Value MAC (\S+)
+Value PLATFORM (\S+)
+Value TYPE (\S+)
+
+Start
+  ^\s+"bgp_asn":\s+"${BGP_ASN}" -> bgp_status
+			 
+bgp_status
+  ^\s+"default_bgp_status":\s+"${BGP_STATUS}" -> hostname
+
+hostname
+  ^\s+"hostname":\s+"${HOSTNAME}" -> hwsku
+
+hwsku
+  ^\s+"hwsku":\s+"${HWSKU}" -> mac
+
+mac
+  ^\s+"mac":\s+"${MAC}" -> platform
+
+platform
+  ^\s+"platform":\s+"${PLATFORM}" -> type
+  
+type
+  ^\s+"type":\s+"${TYPE}" -> Record
+  
