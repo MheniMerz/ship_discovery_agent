@@ -18,11 +18,20 @@ class Parser:
             fsm = textfsm.TextFSM(template)
             self.headers = fsm.header
             self.data = fsm.ParseText(query.result)
-            self.parse_to_json()
-            return self.json_data
-
-    def parse_to_json(self):
+            if len(self.data) == 1:
+                self.parse_single_row_to_json()
+            else:
+                self.parse_multiple_rows_to_json()
+        return self.json_data
+        
+    def parse_multiple_rows_to_json(self):
         json_dict = {}
         json_dict['columns'] = self.headers
         json_dict['rows'] = self.data
+        self.json_data = json_dict
+
+    def parse_single_row_to_json(self):
+        json_dict = {}
+        for header in self.headers:
+            json_dict[header] = self.data[0][self.headers.index(header)]
         self.json_data = json_dict
