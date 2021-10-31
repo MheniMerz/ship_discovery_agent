@@ -18,7 +18,7 @@ class Parser:
             fsm = textfsm.TextFSM(template)
             self.headers = fsm.header
             self.data = fsm.ParseText(query.result)
-            if len(self.data) == 1:
+            if 'metadata' in query.cmd:
                 self.parse_single_row_to_json()
             else:
                 self.parse_multiple_rows_to_json()
