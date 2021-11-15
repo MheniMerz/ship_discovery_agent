@@ -18,20 +18,14 @@ class Parser:
             fsm = textfsm.TextFSM(template)
             self.headers = fsm.header
             self.data = fsm.ParseText(query.result)
-            if 'metadata' in query.cmd:
-                self.parse_single_row_to_json()
-            else:
-                self.parse_multiple_rows_to_json()
+            self.parse_rows_to_json()
         return self.json_data
         
-    def parse_multiple_rows_to_json(self):
+    def parse_rows_to_json(self):
+        json_dict_list = []
         json_dict = {}
-        json_dict['columns'] = self.headers
-        json_dict['rows'] = self.data
-        self.json_data = json_dict
+        for row in self.data:
+            json_dict = dict(zip(self.headers, row))
+            json_dict_list.append(json_dict)
+        self.json_data = json_dict_list
 
-    def parse_single_row_to_json(self):
-        json_dict = {}
-        for header in self.headers:
-            json_dict[header] = self.data[0][self.headers.index(header)]
-        self.json_data = json_dict
