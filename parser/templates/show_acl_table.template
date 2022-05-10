@@ -1,7 +1,7 @@
 Value NAME (\S+)
-Value TYPE (\w+)
-Value BINDING (\d+)
-Value DESCRIPTION (\w+)
+Value TYPE (\S+)
+Value BINDING (\S+)
+Value DESCRIPTION (\S+)
 Value STAGE (\w+)
 
 Start
