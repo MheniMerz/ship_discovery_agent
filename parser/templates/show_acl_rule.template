@@ -2,11 +2,14 @@ Value TABLE (\S+)
 Value RULE (\S+)
 Value PRIORITY (\d+)
 Value ACTION (\w+)
-Value MATCH (\S+\s\S+)
+Value List MATCH (\S+:\s\S+)
 
-Start
+Start  
   ^Table\s+Rule\s+Priority\s+Action\s+Match
   ^[-+\s+]+ -> Row
 
 Row
-  ^${TABLE}\s+${RULE}\s+${PRIORITY}\s+${ACTION}\s+${MATCH} -> Record
+  ^${TABLE}\s+${RULE}\s+${PRIORITY}\s+${ACTION}\s+${MATCH} -> Match
+
+Match
+  ^\s*${MATCH} -> Record Row
