@@ -30,7 +30,7 @@ command_dict = {
         'bgp': 'show ip bgp neighbors'
 }
 
-#headerList = ['metadata', 'arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
+headerList = ['metadata', 'arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
 
 def loadSSH():
     # load host ssh keys
@@ -45,8 +45,8 @@ def collectData():
             username=cfg.conf_file_contents['AUTH']['username'],
             password=cfg.conf_file_contents['AUTH']['password'])
         deviceList.append(device)
-        for i in commandList:
-            current_query = Query(device, i)
+        for key in command_dict:
+            current_query = Query(device, command_dict[key])
             current_query.send_query(client)
             query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
     client.close()
