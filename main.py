@@ -13,7 +13,7 @@ from request.request import Request
 
 client = SSHClient()
 parser = Parser()
-deviceList = []
+#nested dict containing query results for each device
 query_dictionary = {}
 jsonDict = {}
 
@@ -30,8 +30,6 @@ command_dict = {
         'bgp': 'show ip bgp neighbors'
 }
 
-headerList = ['metadata', 'arp', 'ipRoute', 'aclTable', 'aclRule', 'lldp', 'vlan', 'interface', 'bgp']
-
 def loadSSH():
     # load host ssh keys
     client.load_host_keys(os.path.expanduser('~/.ssh/known_hosts'))
@@ -43,27 +41,28 @@ def collectData():
         client.connect(
             device,
             username=cfg.conf_file_contents['AUTH']['username'],
-            password=cfg.conf_file_contents['AUTH']['password'])
-        deviceList.append(device)
+            password=cfg.conf_file_contents['AUTH']['password'],
+            allow_agent=False,
+            banner_timeout=10
+        )
+        #initialize device dict
+        query_dictionary[device] = {}
         for key in command_dict:
-            current_query = Query(device, command_dict[key])
+            current_query = Query(device, command_dict[key], key)
             current_query.send_query(client)
-            query_dictionary[current_query.device + '.' + current_query.cmd] = current_query
+            query_dictionary[current_query.device][current_query.template] = current_query
     client.close()
 
 def jsonParse():
     outputDict = {}
-    n = 0
     # parsing data into JSON
     for i in query_dictionary:
-        result = parser.parse_query_result(query_dictionary[i])
-        outputDict[headerList[n % len(headerList)]] = result
-        if ((n+1) % len(headerList)) == 0:
-            jsonDict[deviceList[int(n / len(headerList))]] = outputDict
-            outputDict = {}
-        n += 1
+        for j in query_dictionary[i]:
+            result = parser.parse_query_result(query_dictionary[i][j])
+            outputDict[j] = result
+        jsonDict[i] = outputDict
+        outputDict = {}
     json_network = json.dumps(jsonDict)
-
     # saving JSON output to a JSON file
     jsonFile = open("data.json", "w+")
     jsonFile.write(json_network)
