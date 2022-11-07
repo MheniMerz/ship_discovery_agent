@@ -1,7 +1,8 @@
 class Query:
-    def __init__(self, device: str, cmd: str):
+    def __init__(self, device: str, cmd: str, template:str):
         self.device = device
         self.cmd = cmd
+        self.template = template
         self.result = ''
 
     def send_query(self, ssh_client):
